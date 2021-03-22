@@ -1,2 +1,2 @@
-# inpost-pickup-point-bundle
-Answear Inpost Pickup Point Bundle
+# Answear Inpost Pickup Point Bundle
+
