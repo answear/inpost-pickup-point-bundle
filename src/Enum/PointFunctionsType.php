@@ -30,6 +30,7 @@ class PointFunctionsType extends Enum
     public const AIR_OUTSIDE_AIRPORT = 'air_outside_airport';
     public const COOL_PARCEL_COLLECT = 'cool_parcel_collect';
     public const LAUNDRY = 'laundry';
+    public const LAUNDRY_COLLECT = 'laundry_collect';
     public const AVIZO = 'avizo';
 
     public static function parcel(): self
@@ -140,6 +141,11 @@ class PointFunctionsType extends Enum
     public static function laundry(): self
     {
         return static::get(static::LAUNDRY);
+    }
+
+    public static function laundryCollect(): self
+    {
+        return static::get(static::LAUNDRY_COLLECT);
     }
 
     public static function avizo(): self

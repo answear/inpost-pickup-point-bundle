@@ -193,6 +193,16 @@ class FindPointsRequestBuilder
         return $this;
     }
 
+    /**
+     * @param string[] $fields
+     */
+    public function setFields(array $fields): self
+    {
+        $this->criteria['fields'] = implode(',', $fields);
+
+        return $this;
+    }
+
     public function build(): FindPointsRequest
     {
         return new FindPointsRequest($this->criteria);
