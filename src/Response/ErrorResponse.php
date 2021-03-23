@@ -11,21 +11,15 @@ class ErrorResponse
     public string $message;
     public string $id;
     public int $code;
-    public ?string $context;
-    public ?string $component;
 
     public function __construct(
         string $message,
         string $id,
-        int $code,
-        ?string $context = null,
-        ?string $component = null
+        int $code
     ) {
         $this->message = $message;
         $this->id = $id;
         $this->code = $code;
-        $this->context = $context;
-        $this->component = $component;
     }
 
     public static function isErrorResponse(array $response): bool
@@ -39,18 +33,14 @@ class ErrorResponse
             throw new \RuntimeException('Cannot create ErrorResponse');
         }
 
-        $response = $response['error'];
-
-        Assert::keyExists($response, 'message');
-        Assert::keyExists($response, 'id');
-        Assert::keyExists($response, 'code');
+        Assert::keyExists($response, 'error');
+        Assert::keyExists($response, 'key');
+        Assert::keyExists($response, 'status');
 
         return new self(
-            $response['message'],
-            $response['id'],
-            (int) $response['code'],
-            $response['context'] ?? null,
-            $response['component'] ?? null,
+            $response['error'],
+            $response['key'],
+            (int) $response['status']
         );
     }
 }

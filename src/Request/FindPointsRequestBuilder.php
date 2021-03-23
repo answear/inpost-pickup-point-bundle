@@ -181,7 +181,7 @@ class FindPointsRequestBuilder
 
     public function setPage(int $page): self
     {
-        $this->criteria['page'] = $page < 0 ? 0 : $page;
+        $this->criteria['page'] = $page < 1 ? 1 : $page;
 
         return $this;
     }
