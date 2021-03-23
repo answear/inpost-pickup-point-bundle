@@ -6,7 +6,7 @@ namespace Answear\InpostBundle\Request;
 
 interface Request
 {
-    public function getEndpoint(): string;
+    public function getRequestUrl(): string;
 
     public function getMethod(): string;
 }

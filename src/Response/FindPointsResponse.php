@@ -33,6 +33,7 @@ class FindPointsResponse
     {
         Assert::keyExists($arrayResponse, 'items');
         Assert::keyExists($arrayResponse, 'total_pages');
+        Assert::integer($arrayResponse['total_pages']);
 
         return new self(
             new ItemCollection(
@@ -41,7 +42,7 @@ class FindPointsResponse
                     $arrayResponse['items']
                 )
             ),
-            (int) $arrayResponse['total_pages']
+            $arrayResponse['total_pages']
         );
     }
 }

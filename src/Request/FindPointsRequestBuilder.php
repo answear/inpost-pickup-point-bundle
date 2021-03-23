@@ -6,10 +6,12 @@ namespace Answear\InpostBundle\Request;
 
 use Answear\InpostBundle\Enum\PointFunctionsType;
 use Answear\InpostBundle\Enum\PointType;
+use Answear\InpostBundle\Exception\FindPointsRequestBuilderException;
 
 class FindPointsRequestBuilder
 {
     private array $criteria;
+    private const SEPARATOR = ',';
 
     public function setName(string $name): self
     {
@@ -23,7 +25,7 @@ class FindPointsRequestBuilder
      */
     public function setNames(array $names): self
     {
-        $this->criteria['name'] = implode(',', $names);
+        $this->criteria['name'] = implode(self::SEPARATOR, $names);
 
         return $this;
     }
@@ -40,7 +42,7 @@ class FindPointsRequestBuilder
      */
     public function setTypes(array $types): self
     {
-        $this->criteria['type'] = implode(',', array_map(function ($type) {
+        $this->criteria['type'] = implode(self::SEPARATOR, array_map(function ($type) {
             return $type->getValue();
         }, $types));
 
@@ -59,7 +61,7 @@ class FindPointsRequestBuilder
      */
     public function setFunctions(array $functions): self
     {
-        $this->criteria['functions'] = implode(',', array_map(function ($type) {
+        $this->criteria['functions'] = implode(self::SEPARATOR, array_map(function ($type) {
             return $type->getValue();
         }, $functions));
 
@@ -78,7 +80,7 @@ class FindPointsRequestBuilder
      */
     public function setPartnersId(array $partnersId): self
     {
-        $this->criteria['partner_id'] = implode(',', $partnersId);
+        $this->criteria['partner_id'] = implode(self::SEPARATOR, $partnersId);
 
         return $this;
     }
@@ -109,7 +111,7 @@ class FindPointsRequestBuilder
      */
     public function setPostCodes(array $postCodes): self
     {
-        $this->criteria['post_code'] = implode(',', $postCodes);
+        $this->criteria['post_code'] = implode(self::SEPARATOR, $postCodes);
 
         return $this;
     }
@@ -126,7 +128,7 @@ class FindPointsRequestBuilder
      */
     public function setCities(array $cities): self
     {
-        $this->criteria['city'] = implode(',', $cities);
+        $this->criteria['city'] = implode(self::SEPARATOR, $cities);
 
         return $this;
     }
@@ -143,7 +145,7 @@ class FindPointsRequestBuilder
      */
     public function setProvinces(array $provinces): self
     {
-        $this->criteria['province'] = implode(',', $provinces);
+        $this->criteria['province'] = implode(self::SEPARATOR, $provinces);
 
         return $this;
     }
@@ -160,7 +162,7 @@ class FindPointsRequestBuilder
      */
     public function setVirtuals(array $virtuals): self
     {
-        $this->criteria['virtual'] = implode(',', $virtuals);
+        $this->criteria['virtual'] = implode(self::SEPARATOR, $virtuals);
 
         return $this;
     }
@@ -188,7 +190,11 @@ class FindPointsRequestBuilder
 
     public function setPerPage(int $perPage): self
     {
-        $this->criteria['per_page'] = max(1, min(500, $perPage));
+        if ($perPage > 500) {
+            throw new FindPointsRequestBuilderException(sprintf('max value of perPage parameter is 500 (%d given)', $perPage));
+        }
+
+        $this->criteria['per_page'] = max(1, $perPage);
 
         return $this;
     }
@@ -198,7 +204,7 @@ class FindPointsRequestBuilder
      */
     public function setFields(array $fields): self
     {
-        $this->criteria['fields'] = implode(',', $fields);
+        $this->criteria['fields'] = implode(self::SEPARATOR, $fields);
 
         return $this;
     }

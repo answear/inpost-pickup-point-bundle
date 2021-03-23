@@ -16,7 +16,7 @@ class FindPointsRequest implements Request
         $this->searchCriteria = $criteria;
     }
 
-    public function getEndpoint(): string
+    public function getRequestUrl(): string
     {
         if (count($this->searchCriteria) > 0) {
             return static::ENDPOINT . '?' . http_build_query($this->searchCriteria);

@@ -36,11 +36,12 @@ class ErrorResponse
         Assert::keyExists($response, 'error');
         Assert::keyExists($response, 'key');
         Assert::keyExists($response, 'status');
+        Assert::integer($response['status']);
 
         return new self(
             $response['error'],
             $response['key'],
-            (int) $response['status']
+            $response['status']
         );
     }
 }
