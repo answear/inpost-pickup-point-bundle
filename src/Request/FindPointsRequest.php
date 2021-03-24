@@ -11,20 +11,15 @@ class FindPointsRequest implements Request
 
     private array $searchCriteria;
 
-    public function __construct()
+    public function __construct(array $criteria = [])
     {
-        $this->searchCriteria = [];
+        $this->searchCriteria = $criteria;
     }
 
-    public function addSearchCriteria(string $type, string $value): void
-    {
-        $this->searchCriteria[$type] = $value;
-    }
-
-    public function getEndpoint(): string
+    public function getRequestUrl(): string
     {
         if (count($this->searchCriteria) > 0) {
-            return static::ENDPOINT . http_build_query($this->searchCriteria);
+            return static::ENDPOINT . '?' . http_build_query($this->searchCriteria);
         }
 
         return static::ENDPOINT;

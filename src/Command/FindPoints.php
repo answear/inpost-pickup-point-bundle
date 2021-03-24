@@ -27,7 +27,7 @@ class FindPoints extends AbstractCommand
     {
         $httpRequest = new HttpRequest(
             $request->getMethod(),
-            new Uri(ConfigProvider::API_VERSION . $request->getEndpoint()),
+            new Uri(ConfigProvider::API_VERSION . $request->getRequestUrl()),
             [
                 'Content-type' => 'application/json',
             ],
