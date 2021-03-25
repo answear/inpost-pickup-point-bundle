@@ -43,6 +43,7 @@ class FindPointsTest extends TestCase
         $response = $command->findPoints(new FindPointsRequest());
 
         $this->assertCount(1, $response->getItems());
+        $this->assertSame(1, $response->getTotalItemsCount());
         $this->assertPoint($response);
     }
 
