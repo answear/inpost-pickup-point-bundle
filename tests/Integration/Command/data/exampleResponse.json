@@ -1,9 +1,9 @@
 {
   "href": "https://api-pl-points.easypack24.net/v1/points",
-  "count": 13510,
+  "count": 1,
   "page": 1,
   "per_page": 25,
-  "total_pages": 541,
+  "total_pages": 1,
   "items": [
     {
       "href": "https://api-pl-points.easypack24.net/v1/points/ADA01M",
@@ -60,9 +60,9 @@
   ],
   "meta": {
     "href": "https://api-pl-points.easypack24.net/v1/points",
-    "count": 13510,
+    "count": 1,
     "page": 1,
     "per_page": 25,
-    "total_pages": 541
+    "total_pages": 1
   }
 }

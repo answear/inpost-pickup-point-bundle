@@ -12,11 +12,13 @@ class FindPointsResponse
 {
     public ItemCollection $items;
     public int $totalPages;
+    public int $totalItemsCount;
 
-    public function __construct(ItemCollection $offices, int $totalPages)
+    public function __construct(ItemCollection $offices, int $totalPages, int $totalItemsCount)
     {
         $this->items = $offices;
         $this->totalPages = $totalPages;
+        $this->totalItemsCount = $totalItemsCount;
     }
 
     public function getItems(): ItemCollection
@@ -29,11 +31,18 @@ class FindPointsResponse
         return $this->totalPages;
     }
 
+    public function getTotalItemsCount(): int
+    {
+        return $this->totalItemsCount;
+    }
+
     public static function fromArray(array $arrayResponse): self
     {
         Assert::keyExists($arrayResponse, 'items');
         Assert::keyExists($arrayResponse, 'total_pages');
+        Assert::keyExists($arrayResponse, 'count');
         Assert::integer($arrayResponse['total_pages']);
+        Assert::integer($arrayResponse['count']);
 
         return new self(
             new ItemCollection(
@@ -42,7 +51,8 @@ class FindPointsResponse
                     $arrayResponse['items']
                 )
             ),
-            $arrayResponse['total_pages']
+            $arrayResponse['total_pages'],
+            $arrayResponse['count']
         );
     }
 }
