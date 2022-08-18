@@ -42,9 +42,12 @@ class FindPointsRequestBuilder
      */
     public function setTypes(array $types): self
     {
-        $this->criteria['type'] = implode(self::SEPARATOR, array_map(function ($type) {
-            return $type->getValue();
-        }, $types));
+        $this->criteria['type'] = implode(
+            self::SEPARATOR,
+            array_map(static function ($type): string {
+                return $type->getValue();
+            }, $types)
+        );
 
         return $this;
     }
@@ -61,9 +64,12 @@ class FindPointsRequestBuilder
      */
     public function setFunctions(array $functions): self
     {
-        $this->criteria['functions'] = implode(self::SEPARATOR, array_map(function ($type) {
-            return $type->getValue();
-        }, $functions));
+        $this->criteria['functions'] = implode(
+            self::SEPARATOR,
+            array_map(static function ($type): string {
+                return $type->getValue();
+            }, $functions)
+        );
 
         return $this;
     }

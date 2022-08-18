@@ -19,14 +19,14 @@ class FindPointsRequest implements Request
     public function getRequestUrl(): string
     {
         if (count($this->searchCriteria) > 0) {
-            return static::ENDPOINT . '?' . http_build_query($this->searchCriteria);
+            return self::ENDPOINT . '?' . http_build_query($this->searchCriteria);
         }
 
-        return static::ENDPOINT;
+        return self::ENDPOINT;
     }
 
     public function getMethod(): string
     {
-        return static::HTTP_METHOD;
+        return self::HTTP_METHOD;
     }
 }
