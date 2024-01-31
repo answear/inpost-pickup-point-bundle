@@ -8,18 +8,11 @@ use Webmozart\Assert\Assert;
 
 class ErrorResponse
 {
-    public string $message;
-    public string $id;
-    public int $code;
-
     public function __construct(
-        string $message,
-        string $id,
-        int $code
+        public string $message,
+        public string $id,
+        public int $code,
     ) {
-        $this->message = $message;
-        $this->id = $id;
-        $this->code = $code;
     }
 
     public static function isErrorResponse(array $response): bool
