@@ -94,8 +94,13 @@ class FindPointsTest extends TestCase
         return new FindPoints($this->client, new Serializer());
     }
 
-    private function getSuccessfulBody(): string|false
+    private function getSuccessfulBody(): string
     {
-        return file_get_contents(__DIR__ . '/data/exampleResponse.json');
+        $response = file_get_contents(__DIR__ . '/data/exampleResponse.json');
+        if (false === $response) {
+            throw new \RuntimeException('Cannot read example response file');
+        }
+
+        return $response;
     }
 }

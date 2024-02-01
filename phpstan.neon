@@ -10,5 +10,4 @@ parameters:
     paths:
         - %rootDir%/../../../src
     excludePaths:
-        - src/Tests/*
         - tests/*

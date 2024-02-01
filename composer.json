@@ -13,13 +13,13 @@
         "webmozart/assert": "^1.11"
     },
     "require-dev": {
-        "roave/security-advisories": "dev-master",
-        "phpunit/phpunit": "^9.6.16",
-        "symfony/phpunit-bridge": "6.1.*",
-        "phpro/grumphp": "^1.16",
         "friendsofphp/php-cs-fixer": "^3.48",
+        "phpro/grumphp": "^2.4",
         "phpstan/phpstan": "^1.10.57",
-        "phpstan/phpstan-webmozart-assert": "^1.2.4"
+        "phpstan/phpstan-webmozart-assert": "^1.2.4",
+        "phpunit/phpunit": "^10.5",
+        "roave/security-advisories": "dev-master",
+        "symfony/phpunit-bridge": "6.1.*"
     },
     "autoload": {
         "psr-4": {
