@@ -17,8 +17,11 @@ class FindPoints extends AbstractCommand
     private Client $client;
     private Serializer $serializer;
 
-    public function __construct(Client $client, Serializer $serializer)
-    {
+    public function __construct(
+        private readonly ConfigProvider $configProvider,
+        Client $client,
+        Serializer $serializer,
+    ) {
         $this->client = $client;
         $this->serializer = $serializer;
     }
@@ -27,7 +30,7 @@ class FindPoints extends AbstractCommand
     {
         $httpRequest = new HttpRequest(
             $request->getMethod(),
-            new Uri(ConfigProvider::API_VERSION . $request->getRequestUrl()),
+            new Uri($this->configProvider->apiVersion . $request->getRequestUrl()),
             [
                 'Content-type' => 'application/json',
             ],
