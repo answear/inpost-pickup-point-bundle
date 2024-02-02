@@ -1,7 +1,13 @@
 includes:
     - vendor/phpstan/phpstan-webmozart-assert/extension.neon
+    - vendor/phpstan/phpstan-deprecation-rules/rules.neon
 
 parameters:
     level: 5
+    checkNullables: true
+    checkUnionTypes: true
+    treatPhpDocTypesAsCertain: false
     paths:
         - %rootDir%/../../../src
+    excludePaths:
+        - tests/*

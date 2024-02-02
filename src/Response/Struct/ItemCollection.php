@@ -26,6 +26,7 @@ class ItemCollection implements \Countable, \IteratorAggregate
     /**
      * @return Item[]
      */
+    #[\ReturnTypeWillChange]
     public function getIterator(): iterable
     {
         foreach ($this->offices as $key => $office) {

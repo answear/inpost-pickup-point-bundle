@@ -17,7 +17,7 @@ class Client
     private ClientInterface $client;
 
     public function __construct(
-        ?ClientInterface $client = null
+        ?ClientInterface $client = null,
     ) {
         $this->client = $client ?? new GuzzleClient(
             [

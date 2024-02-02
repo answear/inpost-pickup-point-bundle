@@ -78,7 +78,7 @@ class Item
     {
         $pointType = [];
         foreach ($types as $type) {
-            $pointType[] = PointType::get($type);
+            $pointType[] = PointType::from($type);
         }
 
         return $pointType;
@@ -93,7 +93,7 @@ class Item
     {
         $pointFunctionsTypes = [];
         foreach ($functions as $function) {
-            $pointFunctionsTypes[] = PointFunctionsType::get($function);
+            $pointFunctionsTypes[] = PointFunctionsType::from($function);
         }
 
         return $pointFunctionsTypes;

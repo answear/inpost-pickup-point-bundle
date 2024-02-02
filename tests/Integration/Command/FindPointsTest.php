@@ -55,7 +55,7 @@ class FindPointsTest extends TestCase
         $this->assertNotNull($point);
         $this->assertSame($point->id, 'ADA01M');
         $this->assertSame($point->name, 'ADA01M');
-        $this->assertSame($point->type, [PointType::parcelLocker()]);
+        $this->assertSame($point->type, [PointType::ParcelLocker]);
         $this->assertSame($point->status, 'Operating');
         $this->assertInstanceOf(ItemLocation::class, $point->location);
         $this->assertSame($point->location->longitude, 22.264049625);
@@ -79,7 +79,7 @@ class FindPointsTest extends TestCase
         $this->assertNull($point->addressDetails->flatNumber);
         $this->assertNull($point->phoneNumber);
         $this->assertSame($point->paymentPointDescr, 'Płatność internetowa PayByLink oraz Blik');
-        $this->assertSame($point->functions, [PointFunctionsType::parcelCollect(), PointFunctionsType::parcelSend()]);
+        $this->assertSame($point->functions, [PointFunctionsType::ParcelCollect, PointFunctionsType::ParcelSend]);
         $this->assertSame($point->partnerId, 0);
         $this->assertFalse($point->isNext);
         $this->assertTrue($point->paymentAvailable);
@@ -96,6 +96,11 @@ class FindPointsTest extends TestCase
 
     private function getSuccessfulBody(): string
     {
-        return file_get_contents(__DIR__ . '/data/exampleResponse.json');
+        $response = file_get_contents(__DIR__ . '/data/exampleResponse.json');
+        if (false === $response) {
+            throw new \RuntimeException('Cannot read example response file');
+        }
+
+        return $response;
     }
 }
