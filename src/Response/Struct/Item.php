@@ -22,6 +22,7 @@ class Item
     public ?string $locationDescription2;
     public ?int $distance;
     public ?string $openingHours;
+    public ?ItemOperatingHours $operatingHoursExtended;
     public ?ItemAddress $address;
     public ?ItemAddressDetails $addressDetails;
     public ?string $phoneNumber;
@@ -36,6 +37,7 @@ class Item
     /** @var string[] */
     public ?array $recommendedLowInterestBoxMachinesList;
     public ?bool $location247;
+    public ?bool $easyAccessZone;
 
     public static function fromArray(array $pointData): self
     {
@@ -53,6 +55,9 @@ class Item
         $point->locationDescription2 = $pointData['location_description_2'] ?? null;
         $point->distance = $pointData['distance'] ?? null;
         $point->openingHours = $pointData['opening_hours'] ?? null;
+        $point->operatingHoursExtended = !empty($pointData['operating_hours_extended'])
+            ? ItemOperatingHours::fromArray($pointData['operating_hours_extended'])
+            : null;
         $point->address = !empty($pointData['address']) ? ItemAddress::fromArray($pointData['address']) : null;
         $point->addressDetails = !empty($pointData['address_details']) ? ItemAddressDetails::fromArray($pointData['address_details']) : null;
         $point->phoneNumber = $pointData['phone_number'] ?? null;
@@ -65,6 +70,7 @@ class Item
         $point->virtual = $pointData['virtual'] ?? null;
         $point->recommendedLowInterestBoxMachinesList = $pointData['recommended_low_interest_box_machines_list'] ?? null;
         $point->location247 = $pointData['location_247'] ?? null;
+        $point->easyAccessZone = $pointData['easy_access_zone'] ?? null;
 
         return $point;
     }
