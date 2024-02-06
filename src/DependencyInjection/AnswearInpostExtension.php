@@ -35,10 +35,7 @@ class AnswearInpostExtension extends Extension implements PrependExtensionInterf
         $this->setConfig($container, $configs);
 
         $definition = $container->getDefinition(ConfigProvider::class);
-        $definition->setArguments([
-            $this->config['baseUrl'],
-            $this->config['apiVersion'],
-        ]);
+        $definition->setArguments([$this->config['baseUrl']]);
     }
 
     private function setConfig(ContainerBuilder $container, array $configs): void

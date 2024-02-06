@@ -26,7 +26,6 @@ class FindPointsTest extends TestCase
     use MockGuzzleTrait;
 
     private Client $client;
-    private ConfigProvider $configProvider;
 
     private const POLAND = 'Poland';
     private const ITALY = 'Italy';
@@ -35,8 +34,8 @@ class FindPointsTest extends TestCase
     {
         parent::setUp();
 
-        $this->configProvider = new ConfigProvider();
-        $this->client = new Client($this->configProvider, $this->setupGuzzleClient());
+        $configProvider = new ConfigProvider();
+        $this->client = new Client($configProvider, $this->setupGuzzleClient());
     }
 
     /**
@@ -169,7 +168,7 @@ class FindPointsTest extends TestCase
 
     private function getCommand(): FindPoints
     {
-        return new FindPoints($this->configProvider, $this->client, new Serializer());
+        return new FindPoints($this->client, new Serializer());
     }
 
     private function getSuccessfulBody(string $country): string

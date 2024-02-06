@@ -6,7 +6,6 @@ namespace Answear\InpostBundle\Command;
 
 use Answear\InpostBundle\Client\Client;
 use Answear\InpostBundle\Client\Serializer;
-use Answear\InpostBundle\ConfigProvider;
 use Answear\InpostBundle\Request\FindPointsRequest;
 use Answear\InpostBundle\Response\FindPointsResponse;
 use GuzzleHttp\Psr7\Request as HttpRequest;
@@ -18,7 +17,6 @@ class FindPoints extends AbstractCommand
     private Serializer $serializer;
 
     public function __construct(
-        private readonly ConfigProvider $configProvider,
         Client $client,
         Serializer $serializer,
     ) {
@@ -30,7 +28,7 @@ class FindPoints extends AbstractCommand
     {
         $httpRequest = new HttpRequest(
             $request->getMethod(),
-            new Uri($this->configProvider->apiVersion . $request->getRequestUrl()),
+            new Uri($request->getRequestUrl()),
             [
                 'Content-type' => 'application/json',
             ],
