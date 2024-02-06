@@ -17,11 +17,12 @@ class Client
     private ClientInterface $client;
 
     public function __construct(
-        ?ClientInterface $client = null
+        private readonly ConfigProvider $configProvider,
+        ?ClientInterface $client = null,
     ) {
         $this->client = $client ?? new GuzzleClient(
             [
-                'base_uri' => ConfigProvider::BASE_URL,
+                'base_uri' => $this->configProvider->baseUrl,
             ]
         );
     }

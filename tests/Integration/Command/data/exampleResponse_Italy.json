@@ -1,0 +1,126 @@
+{
+    "href": "https://api-it-points.easypack24.net/v1/points",
+    "count": 1,
+    "page": 1,
+    "per_page": 25,
+    "total_pages": 1,
+    "items": [
+        {
+            "href": "https://api-it-points.easypack24.net/v1/points/ITAAQ01570P",
+            "name": "ITAAQ01570P",
+            "type": [
+                "pok",
+                "pop"
+            ],
+            "status": "Operating",
+            "location": {
+                "longitude": 13.47289,
+                "latitude": 42.35751
+            },
+            "location_type": "Indoor",
+            "location_date": null,
+            "location_description": "presso Dottor Tech",
+            "location_description_1": null,
+            "location_description_2": null,
+            "distance": null,
+            "opening_hours": "Lun-Ven: 10:00 - 13:00 - 16:00 - 19:00 ",
+            "address": {
+                "line1": "Via Ten. Antonio Rossi Tascione in Str. Vicinale di Paganica 7",
+                "line2": "67100 L'Aquila"
+            },
+            "address_details": {
+                "city": "L'Aquila",
+                "province": "AQ",
+                "post_code": "67100",
+                "street": "Via Ten. Antonio Rossi Tascione in Str. Vicinale di Paganica",
+                "building_number": "7",
+                "flat_number": null
+            },
+            "phone_number": null,
+            "payment_point_descr": "",
+            "functions": [
+                "parcel",
+                "parcel_collect",
+                "parcel_reverse_return_send",
+                "parcel_send",
+                "standard_courier_send"
+            ],
+            "partner_id": 1,
+            "is_next": false,
+            "payment_available": true,
+            "payment_type": {
+                "3": "Payment by cash and card"
+            },
+            "virtual": "3",
+            "recommended_low_interest_box_machines_list": null,
+            "apm_doubled": null,
+            "location_247": false,
+            "operating_hours_extended": {
+                "customer": {
+                    "monday": [
+                        {
+                            "start": 600,
+                            "end": 780
+                        },
+                        {
+                            "start": 960,
+                            "end": 1140
+                        }
+                    ],
+                    "tuesday": [
+                        {
+                            "start": 600,
+                            "end": 780
+                        },
+                        {
+                            "start": 960,
+                            "end": 1140
+                        }
+                    ],
+                    "wednesday": [
+                        {
+                            "start": 600,
+                            "end": 780
+                        },
+                        {
+                            "start": 960,
+                            "end": 1140
+                        }
+                    ],
+                    "thursday": [
+                        {
+                            "start": 600,
+                            "end": 780
+                        },
+                        {
+                            "start": 960,
+                            "end": 1140
+                        }
+                    ],
+                    "friday": [
+                        {
+                            "start": 600,
+                            "end": 780
+                        },
+                        {
+                            "start": 960,
+                            "end": 1140
+                        }
+                    ],
+                    "saturday": [],
+                    "sunday": []
+                }
+            },
+            "agency": "PES",
+            "image_url": "https://static.easypack24.net/points/it/images/ITAAQ01570P.jpg",
+            "easy_access_zone": false
+        }
+    ],
+    "meta": {
+        "href": "https://api-it-points.easypack24.net/v1/points",
+        "count": 6834,
+        "page": 1,
+        "per_page": 25,
+        "total_pages": 274
+    }
+}

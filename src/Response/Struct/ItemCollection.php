@@ -24,9 +24,10 @@ class ItemCollection implements \Countable, \IteratorAggregate
     }
 
     /**
-     * @return \Traversable<Item>
+     * @return Item[]
      */
-    public function getIterator(): \Traversable
+    #[\ReturnTypeWillChange]
+    public function getIterator(): iterable
     {
         foreach ($this->offices as $key => $office) {
             yield $key => $office;

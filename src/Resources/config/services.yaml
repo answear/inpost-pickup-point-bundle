@@ -4,6 +4,9 @@ services:
         autoconfigure: true
         public: false
 
+    Answear\InpostBundle\ConfigProvider: ~
+    Answear\InpostBundle\Client: ~
+
     Answear\InpostBundle\:
         resource: '../../../src/{Command,Client}'
 

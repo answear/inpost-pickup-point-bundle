@@ -1,0 +1,68 @@
+{
+    "href": "https://api-pl-points.easypack24.net/v1/points",
+    "count": 1,
+    "page": 1,
+    "per_page": 25,
+    "total_pages": 1,
+    "items": [
+        {
+            "href": "https://api-pl-points.easypack24.net/v1/points/ADA01M",
+            "name": "ADA01M",
+            "type": [
+                "parcel_locker"
+            ],
+            "status": "Operating",
+            "location": {
+                "longitude": 22.264049625,
+                "latitude": 51.73834066
+            },
+            "location_type": "Outdoor",
+            "location_date": null,
+            "location_description": "Przy sklepie Lewiatan",
+            "location_description_1": null,
+            "location_description_2": null,
+            "distance": null,
+            "opening_hours": "24/7",
+            "address": {
+                "line1": "Kościuszki 27",
+                "line2": "21-412 Adamów"
+            },
+            "address_details": {
+                "city": "Adamów",
+                "province": "lubelskie",
+                "post_code": "21-412",
+                "street": "Kościuszki",
+                "building_number": "27",
+                "flat_number": null
+            },
+            "phone_number": null,
+            "payment_point_descr": "Płatność internetowa PayByLink oraz Blik",
+            "functions": [
+                "parcel_collect",
+                "parcel_send"
+            ],
+            "partner_id": 0,
+            "is_next": false,
+            "payment_available": true,
+            "payment_type": {
+                "0": "Payments are not supported"
+            },
+            "virtual": "0",
+            "recommended_low_interest_box_machines_list": null,
+            "apm_doubled": null,
+            "location_247": true,
+            "operating_hours_extended": {
+                "customer": null
+            },
+            "agency": "IPM4633224",
+            "image_url": "https://static.easypack24.net/points/pl/images/ADA01M.jpg"
+        }
+    ],
+    "meta": {
+        "href": "https://api-pl-points.easypack24.net/v1/points",
+        "count": 1,
+        "page": 1,
+        "per_page": 25,
+        "total_pages": 1
+    }
+}

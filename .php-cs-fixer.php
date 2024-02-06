@@ -13,7 +13,6 @@ $finder = $config->getFinder()
     ->in(__DIR__);
 
 return $config
-    ->registerCustomFixers([])
     ->setRules(
         [
             '@Symfony' => true,
@@ -36,5 +35,9 @@ return $config
                 ],
                 'sort_algorithm' => 'alpha',
             ],
+            'phpdoc_separation' => ['skip_unlisted_annotations' => true],
+            'nullable_type_declaration' => true,
+            'nullable_type_declaration_for_default_null_value' => true,
+            'trailing_comma_in_multiline' => ['elements' => ['arrays', 'parameters']],
         ]
     );
