@@ -25,7 +25,7 @@ class Client
     ) {
         $this->client = $client ?? new GuzzleClient(
             [
-                'base_uri' => $this->configProvider->baseUrl,
+                'base_uri' => rtrim($this->configProvider->baseUrl, '/') . '/',
                 'timeout' => self::TIMEOUT,
                 'connect_timeout' => self::CONNECTION_TIMEOUT
             ]
