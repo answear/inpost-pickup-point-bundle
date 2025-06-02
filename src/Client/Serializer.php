@@ -11,7 +11,7 @@ use Symfony\Component\Serializer\Serializer as SymfonySerializer;
 
 class Serializer
 {
-    private const FORMAT = 'json';
+    private const string FORMAT = 'json';
 
     private SymfonySerializer $serializer;
 

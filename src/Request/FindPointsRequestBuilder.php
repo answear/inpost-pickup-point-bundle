@@ -11,7 +11,7 @@ use Answear\InpostBundle\Exception\FindPointsRequestBuilderException;
 class FindPointsRequestBuilder
 {
     private array $criteria;
-    private const SEPARATOR = ',';
+    private const string SEPARATOR = ',';
 
     public function setName(string $name): self
     {
