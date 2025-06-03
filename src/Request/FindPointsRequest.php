@@ -6,8 +6,8 @@ namespace Answear\InpostBundle\Request;
 
 class FindPointsRequest implements Request
 {
-    private const ENDPOINT = 'points';
-    private const HTTP_METHOD = 'GET';
+    private const string ENDPOINT = 'points';
+    private const string HTTP_METHOD = 'GET';
 
     private array $searchCriteria;
 

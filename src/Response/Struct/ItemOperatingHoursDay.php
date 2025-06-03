@@ -33,6 +33,6 @@ class ItemOperatingHoursDay
 
     private static function parseTime(int $timestamp): string
     {
-        return (new \DateTimeImmutable())->setTimestamp($timestamp * 60)->format('H:i');
+        return new \DateTimeImmutable()->setTimestamp($timestamp * 60)->format('H:i');
     }
 }
