@@ -15,8 +15,8 @@ class Configuration implements ConfigurationInterface
 
         $treeBuilder->getRootNode()
             ->children()
-            ?->scalarNode('baseUrl')->defaultNull()->end()
-            ?->end();
+                ->scalarNode('baseUrl')->defaultNull()->end()
+            ->end();
 
         return $treeBuilder;
     }

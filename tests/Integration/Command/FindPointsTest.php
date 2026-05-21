@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Answear\InpostBundle\Tests\Integration\Command;
 
 use Answear\InpostBundle\Client\Client;
-use Answear\InpostBundle\Client\Serializer;
 use Answear\InpostBundle\Command\FindPoints;
 use Answear\InpostBundle\ConfigProvider;
 use Answear\InpostBundle\Enum\PointFunctionsType;
@@ -92,6 +91,22 @@ class FindPointsTest extends TestCase
     /**
      * @test
      */
+    public function findPointsSendsGetRequestWithoutBody(): void
+    {
+        $this->mockGuzzleResponse(new Response(200, [], $this->getSuccessfulBody(self::POLAND)));
+
+        $this->getCommand()->findPoints(new FindPointsRequest());
+
+        $this->assertCount(1, $this->clientHistory);
+        $request = $this->clientHistory[0]['request'];
+        $this->assertSame('GET', $request->getMethod());
+        $this->assertSame('', (string) $request->getBody());
+        $this->assertSame(['application/json'], $request->getHeader('Content-Type'));
+    }
+
+    /**
+     * @test
+     */
     public function successfulFindPointsItaly(): void
     {
         $this->mockGuzzleResponse(new Response(200, [], $this->getSuccessfulBody(self::ITALY)));
@@ -168,7 +183,7 @@ class FindPointsTest extends TestCase
 
     private function getCommand(): FindPoints
     {
-        return new FindPoints($this->client, new Serializer());
+        return new FindPoints($this->client);
     }
 
     private function getSuccessfulBody(string $country): string
