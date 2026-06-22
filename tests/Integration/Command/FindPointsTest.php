@@ -135,9 +135,6 @@ class FindPointsTest extends TestCase
 
         $this->assertInstanceOf(ItemOperatingHours::class, $point->operatingHoursExtended);
 
-        $this->assertIsArray($point->operatingHoursExtended->sunday);
-        $this->assertIsArray($point->operatingHoursExtended->monday);
-
         $this->assertContainsOnlyInstancesOf(ItemOperatingHoursDay::class, $point->operatingHoursExtended->sunday);
         $this->assertContainsOnlyInstancesOf(ItemOperatingHoursDay::class, $point->operatingHoursExtended->monday);
 

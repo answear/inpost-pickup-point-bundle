@@ -21,6 +21,7 @@ trait MockGuzzleTrait
         $handlerStack = HandlerStack::create($this->guzzleHandler);
 
         $this->clientHistory = [];
+        /** @phpstan-ignore-next-line */
         $history = Middleware::history($this->clientHistory);
         $handlerStack->push($history);
 

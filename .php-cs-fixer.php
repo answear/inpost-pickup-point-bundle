@@ -2,24 +2,24 @@
 
 declare(strict_types=1);
 
-$config = new PhpCsFixer\Config();
-
-$finder = $config->getFinder()
+$finder = (new PhpCsFixer\Finder())
+    ->in(__DIR__)
     ->exclude(
         [
             'vendor',
         ]
-    )
-    ->in(__DIR__);
+    );
 
-return $config
+return (new PhpCsFixer\Config())
+    ->setFinder($finder)
+    ->registerCustomFixers([])
     ->setRules(
         [
             '@Symfony' => true,
             'strict_param' => false,
             'array_syntax' => ['syntax' => 'short'],
             'concat_space' => ['spacing' => 'one'],
-            'phpdoc_align' => [],
+            'phpdoc_align' => ['align' => 'left'],
             'phpdoc_summary' => false,
             'void_return' => false,
             'phpdoc_var_without_name' => false,
@@ -40,4 +40,5 @@ return $config
             'nullable_type_declaration_for_default_null_value' => true,
             'trailing_comma_in_multiline' => ['elements' => ['arrays', 'parameters']],
         ]
-    );
+    )
+    ->setRiskyAllowed(true);
