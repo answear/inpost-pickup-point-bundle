@@ -16,7 +16,7 @@ class Client
 {
     private const int CONNECTION_TIMEOUT = 10;
     private const int TIMEOUT = 30;
-    
+
     private ClientInterface $client;
 
     public function __construct(
@@ -27,7 +27,7 @@ class Client
             [
                 'base_uri' => rtrim($this->configProvider->baseUrl, '/') . '/',
                 'timeout' => self::TIMEOUT,
-                'connect_timeout' => self::CONNECTION_TIMEOUT
+                'connect_timeout' => self::CONNECTION_TIMEOUT,
             ]
         );
     }
