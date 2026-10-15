@@ -11,4 +11,5 @@ enum PointType: string
     case ParcelLockerOnly = 'parcel_locker_only';
     case ParcelLockerSuperpop = 'parcel_locker_superpop';
     case Pok = 'pok';
+    case RefrigeratedLockerMachine = 'refrigerated_locker_machine';
 }
