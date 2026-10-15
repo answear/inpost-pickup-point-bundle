@@ -178,6 +178,16 @@ class FindPointsTest extends TestCase
         $this->assertFalse($point->location247);
     }
 
+    /**
+     * @test
+     */
+    public function parsesRefrigeratedLockerMachineType(): void
+    {
+        $point = Item::fromArray(['name' => 'WAW802M', 'type' => ['parcel_locker', 'refrigerated_locker_machine']]);
+
+        $this->assertSame([PointType::ParcelLocker, PointType::RefrigeratedLockerMachine], $point->type);
+    }
+
     private function getCommand(): FindPoints
     {
         return new FindPoints($this->client);
